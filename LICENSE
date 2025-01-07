@@ -1,0 +1,69 @@
+# Attivø License Agreement
+
+## Version 1.0, [2025-01-01]
+
+## 1. Definitions
+- "Extension" refers to Attivø Feature Flag Manager and all its associated components
+- "Developer" refers to the original creator and owner of Attivø
+- "User" refers to any individual or entity using the Extension
+- "Chrome Web Store" refers to Google's official Chrome extension distribution platform
+
+## 2. Grant of License
+The Developer hereby grants Users a worldwide, non-exclusive, non-transferable license to use the Extension subject to the terms and conditions of this License Agreement.
+
+## 3. Permitted Use
+Users may:
+- Use the Extension for both commercial and non-commercial purposes
+- Install and operate the Extension in any environment
+- Integrate the Extension into their workflow and processes
+- Create and manage feature flag configurations for their own use
+
+## 4. Restrictions
+Users may not:
+- Sell, resell, rent, lease, or distribute the Extension
+- Provide services related to the Extension for monetary compensation
+- Modify, reverse engineer, decompile, or disassemble the Extension
+- Remove or alter any copyright notices or branding within the Extension
+- Distribute or make the Extension available through any platform other than the Chrome Web Store
+- Create derivative works based on the Extension without explicit written permission from the Developer
+- Transfer the rights granted under this license to any third party
+
+## 5. Distribution
+The Extension shall be distributed exclusively through the Chrome Web Store. Any other form of distribution is strictly prohibited.
+
+## 6. Modifications
+Any modifications, updates, or changes to the Extension are prohibited without prior written consent from the Developer. This includes but is not limited to:
+- Source code modifications
+- Feature additions or removals
+- Interface changes
+- Rebranding or white-labeling
+
+## 7. Disclaimer of Warranty
+THE EXTENSION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. THE DEVELOPER EXPLICITLY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+## 8. Limitation of Liability
+IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE EXTENSION OR THE USE OR OTHER DEALINGS IN THE EXTENSION. THIS INCLUDES BUT IS NOT LIMITED TO:
+- Direct, indirect, incidental, special, exemplary, or consequential damages
+- Loss of data, profits, or business interruption
+- Any damages resulting from the use or inability to use the Extension
+
+## 9. Termination
+This license automatically terminates if you fail to comply with any term or condition of this License Agreement. Upon termination, you must cease all use of the Extension and remove it from your systems.
+
+## 10. Governing Law
+This License Agreement shall be governed by and construed in accordance with the laws of the United Kingdom, without regard to its conflict of law provisions.
+
+## 11. Changes to License Terms
+The Developer reserves the right to modify the terms of this License Agreement at any time. Users will be notified of any changes through the Extension's update mechanism or the Chrome Web Store listing.
+
+## 12. Severability
+If any provision of this License Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law, and the remaining provisions will continue in full force and effect.
+
+## 13. Entire Agreement
+This License Agreement constitutes the entire agreement between the User and the Developer concerning the Extension and supersedes all prior or contemporaneous understandings, agreements, representations, and warranties.
+
+## Contact Information
+For any questions regarding this License Agreement or to request modifications to the Extension, please contact:
+license@attivo.dev
+
+Copyright © 2025 attivo.dev - All rights reserved.
