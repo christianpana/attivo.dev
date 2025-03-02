@@ -7,12 +7,17 @@
     <title>Attivø: Feature Flag Manager</title>
     <style>
         .accent { color: #5fc97e; }
+        pre {
+            background-color: #1e293b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow: auto;
+        }
     </style>
 </head>
-<body class="bg-zinc-900 text-white">
-  <div class="max-w-2xl mx-auto p-8">
-    <!-- Header -->
-    <div class="flex justify-between items-center p-2 px-3 bg-zinc-800/[0.75] rounded-md">
+<body class="bg-zinc-900 text-white leading-relaxed">
+<div class="max-w-3xl mx-auto p-8 space-y-6">
+    <div class="flex justify-between items-center py-4 px-5 bg-zinc-800/[0.75] rounded-md">
         <div class="flex items-center space-x-3">
             <img src="attivo-active.png" alt="Logo" class="w-7 h-7 hover:animate-spin" />
             <div>
@@ -22,68 +27,102 @@
         </div>
     </div>
 
-    <h2 class="text-2xl font-semibold mt-4 accent">Overview</h2>
-    <p class="mt-2">
-        Attivø is a powerful feature flag management tool that puts you in control of your web applications' features. Whether you're a developer, QA engineer, or product manager, this extension makes it effortless to toggle features on and off across any website—all directly from your browser.
-    </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">Overview</h2>
+        <p class="">
+            Attivø is a powerful feature flag management tool that gives you
+            control of your web application's features. Whether you're a
+            developer, QA engineer, or product manager, you can toggle settings
+            directly from your browser without complex configurations.
+        </p>
+    </div>
 
-    <h2 class="text-2xl font-semibold mt-4 accent">Key Features</h2>
-    <ul class="list-disc pl-5 mt-2">
-        <li>🚀 Instantly toggle feature flags on any website</li>
-        <li>💾 Save and manage feature flag configurations per domain</li>
-        <li>🔄 Apply configurations automatically when revisiting sites</li>
-        <li>🎯 Create and manage multiple feature flag presets</li>
-        <li>🌐 Works seamlessly across all websites</li>
-        <li>🔒 Local storage ensures your configurations remain private</li>
-    </ul>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">Key Features</h2>
+        <ul class="list-none pl-0">
+            <li>🚀 Instantly toggle feature flags on any website</li>
+            <li>💾 Save and manage feature flag configurations per domain</li>
+            <li>🔄 Apply settings automatically on return visits</li>
+            <li>🔒 Store configurations locally for privacy</li>
+        </ul>
+    </div>
 
-    <h2 class="text-2xl font-semibold mt-4 accent">Who Is It For?</h2>
-    <p class="mt-2">Attivø is perfect for:</p>
-    <ul class="list-disc pl-5 mt-2">
-        <li>Developers testing new features in production</li>
-        <li>QA teams switching between different feature combinations</li>
-        <li>Product managers previewing upcoming features</li>
-        <li>Teams working with feature-flagged environments</li>
-    </ul>
-    <p class="mt-2">
-        No more complex configuration files or backend changes needed—simply install Attivø, set up your feature flags, and take control of your application's features with just a few clicks. Experience the simplicity of modern feature flag management today!
-    </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">Who Is It For?</h2>
+        <ul class="list-disc pl-5">
+            <li>Developers testing new features in production</li>
+            <li>QA teams switching between feature combinations</li>
+            <li>Product managers previewing upcoming features</li>
+            <li>Teams working in feature-flagged environments</li>
+        </ul>
+    </div>
 
-    <h2 class="text-2xl font-semibold mt-4 accent">Permissions</h2>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">Accessing Feature Flags</h2>
+        <p class="">
+            To retrieve and monitor feature flags, use the following locations:
+        </p>
+        <ul class="list-disc pl-5 ">
+            <li><strong>Window:</strong> The flag configuration is stored as <code>window.__feature_flags__</code>.</li>
+            <li><strong>Local Storage:</strong> Look for the key <code>__feature_flags__</code> for a persisted copy.</li>
+            <li><strong>Session Storage:</strong> A session-specific copy is also available with the same key.</li>
+        </ul>
+    </div>
 
-    <h3 class="text-xl font-semibold mt-4 accent">Storage Permission</h3>
-    <p class="mt-2">
-        This permission is essential for saving users' feature flag configurations and settings. It allows the extension to remember user preferences and feature flag states between browser sessions, ensuring configurations persist even after closing and reopening the browser. Without this permission, the extension would be unable to save any of the user's feature flag settings or preferences.
-    </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">Live updates</h2>
+        <p class="">
+            The feature flag data is automatically updated whenever a flag is changed. To capture live changes, listen for these events:
+        </p>
+        <ul class="list-disc pl-5 ">
+            <li><code>ATTIVO_HOST_INIT</code> – triggered during initialization with the default flags.</li>
+            <li><code>ATTIVO_FEATURE_FLAG_UPDATE</code> – triggered whenever a flag is updated.</li>
+        </ul>
+        <pre class="whitespace-pre-line">
+            window.addEventListener('ATTIVO_HOST_INIT', handleHostInit);
+            window.addEventListener('ATTIVO_FEATURE_FLAG_UPDATE', handleFlagUpdate);
+        </pre>
+        <p class="">
+            Monitoring these events ensures that you your app instantly reflects any changes made to the feature flags.
+        </p>
+    </div>
 
-    <h3 class="text-xl font-semibold mt-4 accent">Tabs Permission</h3>
-    <p class="mt-2">
-        The tabs permission is necessary for the extension to identify which website users are currently visiting and apply the correct feature flags for that specific site. It enables the extension to detect when users navigate between different pages and automatically apply their configured feature flags. This permission ensures seamless functionality as users browse different websites.
-    </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-4">
+        <h2 class="text-2xl font-semibold accent">Attivø with React</h2>
+        <p class="">
+            The <code>useFeatureFlags</code> hook retrieves the current state of a feature flag or a default you supply.
+            The state also gets automatically updated when feature flags change.
+        </p>
+        <pre class="whitespace-pre-line">
+            npm install @attivo/hooks
+        </pre>
+        <pre class="whitespace-pre-line">
+        import { useFeatureFlags } from '@attivo/hooks';
+        ...
+        const isSnowing = useFeatureFlags('snowing', false);
+        </pre>
+    </div>
 
-    <h3 class="text-xl font-semibold mt-4 accent">Scripting Permission</h3>
-    <p class="mt-2">
-        This permission is required for the extension to modify website behavior based on users' feature flag configurations. It allows the extension to inject the necessary code that enables or disables features on the websites users visit. Without this permission, the extension would be unable to apply feature flag settings to the websites being accessed.
-    </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">Contact Information</h2>
+        <p class="">
+        For any questions regarding the extension or to request modifications, please contact: <a href="mailto:hello@attivo.dev" class="accent">hello@attivo.dev</a>
+        </p>
+    </div>
 
-    <h3 class="text-xl font-semibold mt-4 accent">Host Permissions (&lt;all_urls&gt;)</h3>
-    <p class="mt-2">
-        The extension requires access to all URLs because feature flags can be managed on any website. This permission allows the extension to read and modify website data to apply feature flag configurations, regardless of which site users are visiting. It's necessary for the core functionality of managing feature flags across different websites and ensuring configurations work consistently across the web.
-    </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <h2 class="text-2xl font-semibold accent">License and Privacy Policy</h2>
+        <p class="">
+        <a href="license.html">License</a> / <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </div>
 
-      <h2 class="text-2xl font-semibold mt-6 accent">Contact Information</h2>
-      <p class="mt-2">
-          For any questions regarding the extension or to request modifications, please contact: <a href="mailto:hello@attivo.dev" class="accent">hello@attivo.dev</a>
-      </p>
+    <div class="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+        <p class="text-sm">
+        © 2025 attivo.dev - All rights reserved.
+        </p>
+    </div>
+</div>
 
-      <h2 class="text-2xl font-semibold mt-4 accent">License and Privacy Policy</h2>
-      <p class="mt-2">
-          <a href="license.html">License</a> / <a href="privacy.html">Privacy Policy</a>
-      </p>
-
-      <p class="mt-4 text-sm">
-          © 2025 attivo.dev - All rights reserved.
-      </p>
-  </div>
 </body>
 </html>

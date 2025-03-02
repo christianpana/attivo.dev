@@ -1,42 +1,51 @@
 # Attivø: Feature Flag Manager
 
+---
+
 ## Overview
 
-Attivø is a powerful feature flag management tool that puts you in control of your web applications' features. Whether you're a developer, QA engineer, or product manager, this extension makes it effortless to toggle features on and off across any website—all directly from your browser.
+Attivø is a powerful feature flag management tool that gives you control over your web application's features. Whether you're a developer, QA engineer, or product manager, you can toggle settings directly from your browser without complex configurations.
+
+---
 
 ## Key Features
 
 - 🚀 Instantly toggle feature flags on any website
 - 💾 Save and manage feature flag configurations per domain
-- 🔄 Apply configurations automatically when revisiting sites
-- 🎯 Create and manage multiple feature flag presets
-- 🌐 Works seamlessly across all websites
-- 🔒 Local storage ensures your configurations remain private
+- 🔄 Apply settings automatically on return visits
+- 🔒 Store configurations locally for privacy
+
+---
 
 ## Who Is It For?
 
-Attivø is perfect for:
 - Developers testing new features in production
-- QA teams switching between different feature combinations
+- QA teams switching between feature combinations
 - Product managers previewing upcoming features
-- Teams working with feature-flagged environments
+- Teams working in feature-flagged environments
 
-No more complex configuration files or backend changes needed—simply install Attivø, set up your feature flags, and take control of your application's features with just a few clicks. Experience the simplicity of modern feature flag management today!
+---
 
-## Permissions
+## Accessing Feature Flags
 
-### Storage Permission
-This permission is essential for saving users' feature flag configurations and settings. It allows the extension to remember user preferences and feature flag states between browser sessions, ensuring configurations persist even after closing and reopening the browser. Without this permission, the extension would be unable to save any of the user's feature flag settings or preferences.
+To retrieve and monitor feature flags, use the following locations:
 
-### Tabs Permission
-The tabs permission is necessary for the extension to identify which website users are currently visiting and apply the correct feature flags for that specific site. It enables the extension to detect when users navigate between different pages and automatically apply their configured feature flags. This permission ensures seamless functionality as users browse different websites.
+- **Window:** The flag configuration is stored as `window.__feature_flags__`.
+- **Local Storage:** Look for the key `__feature_flags__` for a persisted copy.
+- **Session Storage:** A session-specific copy is also available with the same key.
 
-### Scripting Permission
-This permission is required for the extension to modify website behavior based on users' feature flag configurations. It allows the extension to inject the necessary code that enables or disables features on the websites users visit. Without this permission, the extension would be unable to apply feature flag settings to the websites being accessed.
+---
 
-### Host Permissions (<all_urls>)
-The extension requires access to all URLs because feature flags can be managed on any website. This permission allows the extension to read and modify website data to apply feature flag configurations, regardless of which site users are visiting. It's necessary for the core functionality of managing feature flags across different websites and ensuring configurations work consistently across the web.
+## Live Updates
 
-## License
+The feature flag data is automatically updated whenever a flag is changed. To capture live changes, listen for these events:
 
-./LICENSE file.
+- `ATTIVO_HOST_INIT` – triggered during initialization with the default flags.
+- `ATTIVO_FEATURE_FLAG_UPDATE` – triggered whenever a flag is updated.
+
+```javascript
+window.addEventListener('ATTIVO_HOST_INIT', handleHostInit);
+window.addEventListener('ATTIVO_FEATURE_FLAG_UPDATE', handleFlagUpdate);
+```
+
+Monitoring these events ensures that your app instantly reflects any changes made to the feature flags.
