@@ -1,6 +1,5 @@
-import {Footer} from "./Footer.tsx";
 import {useFeatureFlags} from "@attivo/hooks";
-import {WalkingStickMan} from "./WalkingStickMan.tsx";
+import {WalkingStickMan} from "../components/WalkingStickMan.tsx";
 
 export function HomePage() {
     const isSnowing = useFeatureFlags('snowing', false);
@@ -133,8 +132,6 @@ export function HomePage() {
                     href="mailto:hello@attivo.dev" className="accent">hello@attivo.dev</a>
                 </p>
             </div>
-
-            <Footer />
         </>
     );
 }

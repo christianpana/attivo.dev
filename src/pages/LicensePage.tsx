@@ -1,11 +1,16 @@
-import {Footer} from "./Footer.tsx";
-
 export function LicensePage() {
     return (
         <div className="space-y-6">
             <div>
                 <h1 className="text-2xl font-bold">Attivø License Agreement</h1>
-                <h2 className="text-lg font-semibold">Version 1.0, [2025-01-01]</h2>
+                <h2 className="text-lg font-semibold">Version 1.0, [2025-11-01]</h2>
+            </div>
+
+            <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+                <h2 className="text-2xl font-semibold">IMPORTANT</h2>
+                <p className="mt-2">
+                PLEASE READ THIS LICENSE AGREEMENT CAREFULLY BEFORE INSTALLING OR USING THE EXTENSION.
+                </p>
             </div>
 
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
@@ -139,14 +144,20 @@ export function LicensePage() {
             </div>
 
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+                <p className="mt-4">
+                    By installing, accessing, or using Attivø Feature Flag Manager, you acknowledge that
+                    you have read, understood, and agree to be bound by the terms and conditions
+                    of this License Agreement.
+                </p>
+            </div>
+
+            <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
             <h2 className="text-2xl font-semibold">Contact Information</h2>
             <p className="mt-2">
                 For any questions regarding this License Agreement or to request modifications to the Extension, please
                 contact: <a href="mailto:hello@attivo.dev">hello@attivo.dev</a>
             </p>
             </div>
-
-            <Footer />
         </div>
     );
 }

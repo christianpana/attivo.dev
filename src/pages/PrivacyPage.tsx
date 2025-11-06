@@ -1,11 +1,9 @@
-import {Footer} from "./Footer.tsx";
-
 export function PrivacyPage() {
     return (
         <div className="space-y-6">
             <div>
                 <h1 className="text-2xl font-bold">Privacy Policy for Attivø Feature Flag Manager</h1>
-                <h2 className="text-lg font-semibold">Last Updated: 2025-01-01</h2>
+                <h2 className="text-lg font-semibold">Last Updated: 2025-11-01</h2>
             </div>
 
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
@@ -169,14 +167,11 @@ export function PrivacyPage() {
 
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
             <p className="mt-4">
-                By using Attivø Feature Flag Manager, users acknowledge that they have read, understood, and agree to
-                this Privacy Policy.
+                By using Attivø Feature Flag Manager, you acknowledge that you have read and understood this Privacy Policy.
             </p>
             </div>
 
             <hr className="my-6 border-white"/>
-
-            <Footer />
         </div>
     );
 }

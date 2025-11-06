@@ -1,7 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
 import { useFeatureFlags } from '@attivo/hooks';
+import {ReactNode} from "react";
+import { Link } from '@tanstack/react-router'
+import {Footer} from "./Footer.tsx";
 
-export function Layout() {
+interface LayoutProps {
+    children: ReactNode
+}
+
+export function Layout({ children }: LayoutProps) {
     const ffSpin = useFeatureFlags('make-it-spin', false);
 
     return (
@@ -19,7 +25,8 @@ export function Layout() {
                     <Link to="/privacy" className="hover:text-accent">Privacy</Link>
                 </div>
             </nav>
-            <Outlet />
+            {children}
+            <Footer />
         </div>
     );
 }
