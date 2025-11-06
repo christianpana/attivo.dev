@@ -1,6 +1,13 @@
 import {Footer} from "./Footer.tsx";
+import {useFeatureFlags} from "@attivo/hooks";
+import {WalkingStickMan} from "./WalkingStickMan.tsx";
 
 export function HomePage() {
+    const isSnowing = useFeatureFlags('snowing', false);
+    const isRocketMan = useFeatureFlags('rocket-man', false);
+    const isShowTheStick = useFeatureFlags('show-the-stick', false);
+    const isWalkTheStick = useFeatureFlags('walk-the-stick', false);
+
     return (
         <>
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
@@ -12,6 +19,27 @@ export function HomePage() {
                     directly from your browser without complex configurations.
                 </p>
             </div>
+
+            {isShowTheStick &&
+                <WalkingStickMan
+                    animate={isWalkTheStick}
+                />
+            }
+
+            {isRocketMan && (
+            <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
+                <h2 className="text-2xl font-semibold accent">Rocket Man 🚀</h2>
+                <pre className="whitespace-pre-line bg-black text-green-500 rounded-lg overflow-auto p-4">
+                {`
+                    🎵 And I think it's gonna be a long, long time
+                    🎵 'Til touchdown brings me 'round again to find
+                    🎵 I'm not the man they think I am at home
+                    🎵 Oh, no, no, no
+                    🎵 I'm a rocket man
+                `.trim()}
+                </pre>
+            </div>
+            )}
 
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
                 <h2 className="text-2xl font-semibold accent">Key Features</h2>
@@ -91,6 +119,11 @@ export function HomePage() {
                 ...{`\n`}
                 const isSnowing = useFeatureFlags('snowing', false);
                 </pre>
+                <div>
+                    {isSnowing && (
+                        <p className="text-green-500">It's snowing!</p>
+                    )}
+                </div>
             </div>
 
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
