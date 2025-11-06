@@ -1,11 +1,13 @@
 import {useFeatureFlags} from "@attivo/hooks";
 import {WalkingStickMan} from "../components/WalkingStickMan.tsx";
+import {Ricked} from "../components/Ricked.tsx";
 
 export function HomePage() {
     const isSnowing = useFeatureFlags('snowing', false);
     const isRocketMan = useFeatureFlags('rocket-man', false);
     const isShowTheStick = useFeatureFlags('show-the-stick', false);
     const isWalkTheStick = useFeatureFlags('walk-the-stick', false);
+    const isGetRicked = useFeatureFlags('get-ricked', false);
 
     return (
         <>
@@ -24,6 +26,10 @@ export function HomePage() {
                     animate={isWalkTheStick}
                 />
             }
+
+            {isGetRicked && (
+                <Ricked />
+            )}
 
             {isRocketMan && (
             <div className="py-5 px-5 bg-zinc-800/[0.75] rounded-md space-y-2">
